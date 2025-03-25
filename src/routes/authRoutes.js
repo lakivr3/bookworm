@@ -55,11 +55,11 @@ router.post("/register",async(req,res)=>{
 router.post("/login",async(req,res)=>{
     const{email,password} = req.body
     try {
-        if(!email || !password ) return res.status(400).jeson({message:"All fileds are required"})
+        if(!email || !password ) return res.status(400).json({message:"All fileds are required"})
             
         const user = await User.findOne({email})
         if(!user) return res.status(400).json({message:"User does not exist"})
-
+ 
         const isPasswordCorrect = await user.comparePassword(password)
         if(!isPasswordCorrect) return res.status(400).json({message:"Invalid credentials"})
 

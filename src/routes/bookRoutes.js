@@ -28,7 +28,7 @@ router.post("/",protectRoute,async(req,res)=>{
         res.status(201).json(newBook)
         
     } catch (error) {
-        
+        console.log(error)
     }
 })
 //pagination => infinite scroll
